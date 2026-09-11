@@ -26,5 +26,4 @@ jobs:
           flake8 .
       - name: Run tests
         run: |
-          python -m doctest src/simple.py
-          python -m doctest src/markdown.py
+          python -m pytest --doctest-modules src tests
