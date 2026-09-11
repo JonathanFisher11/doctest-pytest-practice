@@ -26,4 +26,5 @@ jobs:
           flake8 .
       - name: Run tests
         run: |
-          python -m doctest Fixme.py
+          python -m doctest src/simple.py
+          python -m doctest src/markdown.py
