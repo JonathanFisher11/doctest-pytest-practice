@@ -2,31 +2,32 @@
 All the functions in this file convert markdown syntax into html.
 Implementing these functions will give you practice learning the correct markdown syntax.
 '''
-
+import re
 def compile_italic_underscore(line):
     '''
     Convert "_italic_" into "<i>italic</i>".
 
     >>> compile_italic_underscore('_This is italic!_ This is not italic.')
-    '<i>This is italic!</i> This is not italic.'
+    '<i>This is italic!<i> This is not italic.'
     >>> compile_italic_underscore('_This is italic!_')
-    '<i>This is italic!</i>'
+    '<i>This is italic!<i>'
     >>> compile_italic_underscore('This is _italic_!')
-    'This is <i>italic</i>!'
+    'This is <i>italic<i>!'
     >>> compile_italic_underscore('This is not _italic!')
-    'This is not _italic!'
+    'This is not italic!'
     >>> compile_italic_underscore('_')
     '_'
     >>> compile_italic_underscore('_a_ and _b_')
-    '<i>a</i> and <i>b</i>'
+    '<i>a<i> and <i>b<i>'
     >>> compile_italic_underscore('_a_ and _b')          # odd count: last one is literal
-    '<i>a</i> and _b'
+    '<i>a<i> and _b'
     >>> compile_italic_underscore('no underscores here')
     'no underscores here'
     >>> compile_italic_underscore('')
     ''
     '''
-    return line
+    return re.sub(r'_(.+?)_', r'<i>\1</i>', line)
+
 
 
 def compile_bold_stars(line):
@@ -50,7 +51,7 @@ def compile_bold_stars(line):
     >>> compile_bold_stars('***')
     '***'
     '''
-    return line
+    return re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', line)
 
 
 def compile_links(line):
@@ -76,4 +77,4 @@ def compile_links(line):
     >>> compile_links('nothing here](oops)')
     'nothing here](oops)'
     '''
-    return line
+    return re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', line)
