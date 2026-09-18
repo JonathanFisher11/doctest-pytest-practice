@@ -68,7 +68,7 @@ def compile_links(line):
     '<a href="https://x.com">course webpage</a>'
     >>> compile_links('this is wrong: [course webpage] (https://x.com)')
     'this is wrong: [course webpage] (https://x.com)'
-    >>> compile_links('this is wrong: [course webpage](https://x.com')
+    >>> compile_links('this is wrong: [course webpage](https://x.com)')
     'this is wrong: <a href="https://x.com">course webpage</a>'
     >>> compile_links('[a](1) and [b](2)')
     '<a href="1">a</a> and <a href="2">b</a>'
