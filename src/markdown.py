@@ -12,20 +12,20 @@ def compile_italic_underscore(line):
     Convert "_italic_" into "<i>italic</i>".
 
     >>> compile_italic_underscore('_This is italic!_ This is not italic.')
-    '<i>This is italic!<i> This is not italic.'
+    '<i>This is italic!</i> This is not italic.'
     >>> compile_italic_underscore('_This is italic!_')
-    '<i>This is italic!<i>'
+    '<i>This is italic!</i>'
     >>> compile_italic_underscore('This is _italic_!')
-    'This is <i>italic<i>!'
+    'This is <i>italic</i>!'
     >>> compile_italic_underscore('This is not _italic!')
     'This is not italic!'
     >>> compile_italic_underscore('_')
     '_'
     >>> compile_italic_underscore('_a_ and _b_')
-    '<i>a<i> and <i>b<i>'
+    '<i>a</i> and <i>b</i>'
     >>> compile_italic_underscore('_a_ and _b')
-    '<i>a<i> and _b'
-    >>> compile_italic_underscore('no underscores here')
+    '<i>a</i> and _b'
+    >>> comdoepile_italic_underscore('no underscores here')
     'no underscores here'
     >>> compile_italic_underscore('')
     ''
@@ -63,7 +63,7 @@ def compile_links(line):
 
 
     >>> compile_links('Click on the [course webpage](https://x.com)!')
-    'Click on the <a href="https://x.com">course webpage</a>'
+    'Click on the <a href="https://x.com">course webpage</a>!'
     >>> compile_links('[course webpage](https://x.com)')
     '<a href="https://x.com">course webpage</a>'
     >>> compile_links('this is wrong: [course webpage](https://x.com)')
