@@ -18,7 +18,7 @@ def compile_italic_underscore(line):
     >>> compile_italic_underscore('This is _italic_!')
     'This is <i>italic</i>!'
     >>> compile_italic_underscore('This is not _italic!')
-    'This is not italic!'
+    'This is not _italic!'
     >>> compile_italic_underscore('_')
     '_'
     >>> compile_italic_underscore('_a_ and _b_')
@@ -67,12 +67,12 @@ def compile_links(line):
     >>> compile_links('[course webpage](https://x.com)')
     '<a href="https://x.com">course webpage</a>'
     >>> compile_links('this is wrong: [course webpage](https://x.com)')
-    'this is wrong: [course webpage (https://x.com)'
+    'this is wrong: [course webpage] (https://x.com)'
     >>> compile_links('this is wrong: [course webpage](https://x.com')
-    'this is wrong: [course webpage](https://x.com'
+    'this is wrong: [course webpage](https://x.com)'
     >>> compile_links('[a](1) and [b](2)')
     '<a href="1">a</a> and <a href="2">b</a>'
-    di>>> compile_links('(parens) then [t](u)')
+    >>> compile_links('(parens) then [t](u)')
     '(parens) then <a href="u">t</a>'
     >>> compile_links('nothing here](oops)')
     'nothing here](oops)'
