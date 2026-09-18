@@ -25,7 +25,7 @@ def compile_italic_underscore(line):
     '<i>a</i> and <i>b</i>'
     >>> compile_italic_underscore('_a_ and _b')
     '<i>a</i> and _b'
-    >>> comepile_italic_underscore('no underscores here')
+    >>> compile_italic_underscore('no underscores here')
     'no underscores here'
     >>> compile_italic_underscore('')
     ''
